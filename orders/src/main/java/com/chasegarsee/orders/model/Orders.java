@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "ORDERS")
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Orders {
     @ManyToOne
     @JoinColumn(name = "CUSTCODE", nullable = false)
     @JsonIgnore
-    private Customer CUSTCODE;
+    private Customers CUSTCODE;
 
     @ManyToOne
     @JoinColumn(name = "AGENTCODE", nullable = false)
@@ -30,7 +30,7 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders(long ORDNUM, double ORDAMOUNT, double ADVANCEAMOUNT, Customer CUSTCODE, Agents AGENTCODE, String ORDDESCRIPTION)
+    public Orders(long ORDNUM, double ORDAMOUNT, double ADVANCEAMOUNT, Customers CUSTCODE, Agents AGENTCODE, String ORDDESCRIPTION)
     {
         this.ORDNUM = ORDNUM;
         this.ORDAMOUNT = ORDAMOUNT;
@@ -58,12 +58,12 @@ public class Orders {
         this.ADVANCEAMOUNT = ADVANCEAMOUNT;
     }
 
-    public Customer getCUSTCODE()
+    public Customers getCUSTCODE()
     {
         return CUSTCODE;
     }
 
-    public void setCUSTCODE(Customer CUSTCODE)
+    public void setCUSTCODE(Customers CUSTCODE)
     {
         this.CUSTCODE = CUSTCODE;
     }

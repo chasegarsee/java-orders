@@ -4,7 +4,7 @@ package com.chasegarsee.orders.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="agents")
+@Table(name="AGENTS")
 
 public class Agents {
     @Id

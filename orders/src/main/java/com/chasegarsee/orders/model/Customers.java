@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "customers")
-public class Customer {
+@Table(name = "CUSTOMER")
+public class Customers
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long CUSTCODE;
@@ -28,11 +29,11 @@ public class Customer {
     @JoinColumn(name = "AGENTCODE", nullable = false)
     private Agents agents;
 
-    public Customer()
+    public Customers()
     {
     }
 
-    public Customer(Long CUSTCODE, String CUSTNAME, String CUSTCITY, String WORKINGAREA, String CUSTCOUNTRY, String GRADE, double OPENINGAMT, double RECEIVEAMT, double PAYMENTAMT, double OUTSTANDINGAMT, String PHONE, Agents agents)
+    public Customers(Long CUSTCODE, String CUSTNAME, String CUSTCITY, String WORKINGAREA, String CUSTCOUNTRY, String GRADE, double OPENINGAMT, double RECEIVEAMT, double PAYMENTAMT, double OUTSTANDINGAMT, String PHONE, Agents agents)
     {
         this.CUSTCODE = CUSTCODE;
         this.CUSTNAME = CUSTNAME;
@@ -141,6 +142,4 @@ public class Customer {
     {
         this.agents = agents;
     }
-
-
 }

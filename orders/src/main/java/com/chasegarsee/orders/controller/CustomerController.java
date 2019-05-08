@@ -1,6 +1,6 @@
 package com.chasegarsee.orders.controller;
 
-import com.chasegarsee.orders.model.Customer;
+import com.chasegarsee.orders.model.Customers;
 import com.chasegarsee.orders.repos.AgentRepository;
 import com.chasegarsee.orders.repos.CustomerRepository;
 import com.chasegarsee.orders.repos.OrderRepository;
@@ -27,12 +27,17 @@ public class CustomerController
     @Autowired
     OrderRepository orderrepos;
 
+    @GetMapping("/customers/allcustomers")
+    public List<Customers> findAll()
+    {
+        return custrepos.findAll();
+    }
+
     @GetMapping("/city/{city}")
-    public List<Customer> findByCity(@PathVariable String city)
+    public List<Customers> findByCity(@PathVariable String city)
     {
         return custrepos.findByCity(city);
     }
-
 
     @GetMapping("/customer/order")
     public List<Object[]> findAllOrder()
